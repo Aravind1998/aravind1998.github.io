@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Aravind Suresh - Technical Lead Engineer</title>
+  
+  <meta name="description" content="Resume of Aravind Suresh - Technical Lead Engineer specializing in Reactive Systems, High-Throughput Microservices, Cloud Architecture & GenAI.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%200%20100%20100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><text y=%22.68em%22 x=%2250%25%22 font-size=%2252%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>AS</text></svg>">
+  
+  <!-- Font Awesome & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/custom-theme.css">
+
+  <style>
+    .resume-page-wrapper {
+      padding: 110px 0 60px;
+      min-height: 100vh;
+    }
+
+    .resume-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .resume-paper {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .r-header {
+      border-bottom: 2px solid var(--border-hover);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .r-name {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .r-title {
+      font-size: 1.25rem;
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+    .r-contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .r-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .r-contact-item a {
+      color: var(--text-primary);
+    }
+
+    .r-contact-item a:hover {
+      color: var(--accent-primary);
+    }
+
+    .r-section {
+      margin-bottom: 32px;
+    }
+
+    .r-section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    .r-job {
+      margin-bottom: 22px;
+    }
+
+    .r-job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .r-job-role {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .r-job-company {
+      font-weight: 600;
+      color: var(--accent-secondary);
+    }
+
+    .r-job-date {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .r-job-bullets {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .r-job-bullets li {
+      margin-bottom: 6px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .r-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .r-skill-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+
+    .r-skill-cat {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .r-skill-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .r-award-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Print Stylesheet for ATS & Clean PDF Export */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111827 !important;
+      }
+      .header-nav, .resume-toolbar, .ambient-bg, footer, .theme-picker-wrapper {
+        display: none !important;
+      }
+      .resume-page-wrapper {
+        padding: 0 !important;
+      }
+      .resume-paper {
+        background: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .r-header {
+        border-bottom: 2px solid #000000 !important;
+      }
+      .r-name {
+        color: #000000 !important;
+      }
+      .r-title {
+        color: #1f2937 !important;
+      }
+      .r-section-title {
+        color: #000000 !important;
+        border-bottom: 1px solid #d1d5db !important;
+      }
+      .r-job-role, .r-skill-cat {
+        color: #000000 !important;
+      }
+      .r-job-company {
+        color: #374151 !important;
+      }
+      .r-job-bullets li, .r-skill-desc, .r-contact-grid {
+        color: #374151 !important;
+      }
+      a {
+        color: #111827 !important;
+        text-decoration: none !important;
+      }
+      .r-skill-box {
+        border: 1px solid #e5e7eb !important;
+        background: #f9fafb !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Orbs for Background Glow -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-grid"></div>
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="header-nav">
+    <div class="container nav-container">
+      <a href="/" class="nav-logo" aria-label="Aravind Suresh Home">
+        <div class="logo-badge">AS</div>
+        <span>Aravind Suresh</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/#about" class="nav-link">About</a></li>
+        <li><a href="/#experience" class="nav-link">Experience</a></li>
+        <li><a href="/#projects" class="nav-link">Projects</a></li>
+        <li><a href="/#skills" class="nav-link">Skills</a></li>
+        <li><a href="/#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Picker -->
+        <div class="theme-picker-wrapper">
+          <button class="theme-btn" id="theme-picker-btn" aria-label="Select theme palette">
+            <i class="fa-solid fa-palette"></i>
+            <span id="current-theme-label">Theme</span>
+            <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-option active" data-set-theme="midnight">
+              <span class="theme-color-dot dot-midnight"></span> Midnight (Dark)
+            </button>
+            <button class="theme-option" data-set-theme="cyber">
+              <span class="theme-color-dot dot-cyber"></span> Cyberpunk (Neon)
+            </button>
+            <button class="theme-option" data-set-theme="nord">
+              <span class="theme-color-dot dot-nord"></span> Nord Frost
+            </button>
+            <button class="theme-option" data-set-theme="light">
+              <span class="theme-color-dot dot-light"></span> Minimal Light
+            </button>
+          </div>
+        </div>
+
+        <a href="/" class="btn btn-secondary" style="padding: 9px 18px; font-size: 0.88rem;">
+          <i class="fa-solid fa-arrow-left"></i> Portfolio
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="resume-page-wrapper">
+    <div class="container">
+      <!-- Toolbar -->
+      <div class="resume-toolbar">
+        <a href="/" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button class="btn btn-secondary" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> Print / ATS PDF
+          </button>
+          <a href="assets/pdf/Aravind_Suresh_Resume.pdf" download="Aravind_Suresh_Resume.pdf" class="btn btn-primary">
+            <i class="fa-solid fa-file-pdf"></i> Download PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Printable Resume Paper -->
+      <article class="resume-paper">
+        <!-- Header -->
+        <header class="r-header">
+          <div>
+            <h1 class="r-name">Aravind Suresh</h1>
+            <div class="r-title">Technical Lead Engineer | Scalable &amp; Reactive Systems</div>
+          </div>
+          <div class="r-contact-grid">
+            <div class="r-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:aravindsuresh98@gmail.com">aravindsuresh98@gmail.com</a>
+            </div>
+            <div class="r-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9686832383</span>
+            </div>
+            <div class="r-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Bangalore, India</span>
+            </div>
+            <div class="r-contact-item">
+              <i class="fa-solid fa-globe"></i>
+              <a href="https://aravind1998.github.io" target="_blank">aravind1998.github.io</a>
+            </div>
+          </div>
+        </header>
+
+        <!-- Summary -->
+        <section class="r-section">
+          <h2 class="r-section-title"><i class="fa-solid fa-user-tie"></i> Executive Summary</h2>
+          <p style="color: var(--text-secondary); line-height: 1.65; font-size: 0.95rem;">
+            Technical Lead Engineer with over 5+ years of production experience architecting high-throughput distributed architectures, reactive microservices, and financial technology platforms. Proven track record scaling fintech backends to handle <strong>1 Crore (10M+) daily transactions</strong>, modernizing legacy distributed systems, and leading generative AI initiatives from concept to production.
+          </p>
+        </section>
+
+        <!-- Experience -->
+        <section class="r-section">
+          <h2 class="r-section-title"><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
+
+          <!-- Role 1 -->
+          <div class="r-job">
+            <div class="r-job-header">
+              <div>
+                <span class="r-job-role">Technical Lead Engineer</span> — 
+                <span class="r-job-company">Perfios Software Solutions Pvt Ltd</span>
+              </div>
+              <span class="r-job-date">Apr 2024 — Present</span>
+            </div>
+            <ul class="r-job-bullets">
+              <li>Engineered the scaling of Perfios Account Aggregator (AA) framework microservices using <strong>Reactive programming</strong>, optimizing system throughput to reliably process close to <strong>one crore (10,000,000+) transactions per day</strong> while drastically minimizing tail latency.</li>
+              <li>Spearheaded the architectural modernization of core Account Aggregator microservices, transitioning legacy synchronous bottlenecks into resilient, event-driven architectures.</li>
+              <li>Pioneered strategic AI initiatives, leading the end-to-end development of Generative AI Proof of Concepts (PoCs) to evaluate technical feasibility and enterprise business impact.</li>
+            </ul>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="r-job">
+            <div class="r-job-header">
+              <div>
+                <span class="r-job-role">Principal Software Development Engineer</span> — 
+                <span class="r-job-company">Perfios Software Solutions Pvt Ltd</span>
+              </div>
+              <span class="r-job-date">Apr 2023 — Mar 2024</span>
+            </div>
+            <ul class="r-job-bullets">
+              <li>Architected an enterprise <strong>API Orchestration Layer</strong> standardizing external banking service invocations, accelerating integration speed for new financial products by several weeks.</li>
+              <li>Owned the full SDLC of the Financial Information Provider (FIP) module from whiteboard architectural blueprint to production-grade system handling millions of requests daily.</li>
+              <li>Engineered growth-focused initiatives within the Account Aggregator framework, directly expanding market penetration across India's financial ecosystem.</li>
+            </ul>
+          </div>
+
+          <!-- Role 3 -->
+          <div class="r-job">
+            <div class="r-job-header">
+              <div>
+                <span class="r-job-role">Senior Software Engineer</span> — 
+                <span class="r-job-company">Perfios Software Solutions Pvt Ltd</span>
+              </div>
+              <span class="r-job-date">Apr 2021 — Jun 2023</span>
+            </div>
+            <ul class="r-job-bullets">
+              <li>Led technical onboarding for marquee Tier-1 Private and Public sector banks to the Account Aggregator platform, guiding stakeholders from sandbox certification to live production rollout.</li>
+              <li>Developed a high-throughput real-time data streaming pipeline feeding the Admin Dashboard, reducing metrics latency and enabling instant operational visibility.</li>
+            </ul>
+          </div>
+
+          <!-- Role 4 -->
+          <div class="r-job">
+            <div class="r-job-header">
+              <div>
+                <span class="r-job-role">Software Developer</span> — 
+                <span class="r-job-company">Perfios Software Solutions Pvt Ltd</span>
+              </div>
+              <span class="r-job-date">Jul 2019 — Mar 2021</span>
+            </div>
+            <ul class="r-job-bullets">
+              <li>Engineered the Perfios-AA Admin Dashboard using <strong>Spring Boot RESTful Web Services</strong> and a responsive <strong>React JS + Material UI</strong> frontend.</li>
+              <li>Streamlined engineering release cycles by establishing automated GitLab CI/CD pipelines and Docker containerization.</li>
+            </ul>
+          </div>
+
+          <!-- Role 5 -->
+          <div class="r-job">
+            <div class="r-job-header">
+              <div>
+                <span class="r-job-role">Software Development Intern</span> — 
+                <span class="r-job-company">Perfios Software Solutions Pvt Ltd</span>
+              </div>
+              <span class="r-job-date">Jan 2019 — Mar 2019</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="r-section">
+          <h2 class="r-section-title"><i class="fa-solid fa-code"></i> Technical Skills</h2>
+          <div class="r-skills-grid">
+            <div class="r-skill-box">
+              <div class="r-skill-cat">Backend &amp; Architecture</div>
+              <div class="r-skill-desc">Spring Boot, Java, Reactive Programming, RESTful APIs, Microservices, API Orchestration</div>
+            </div>
+            <div class="r-skill-box">
+              <div class="r-skill-cat">Streaming &amp; Cloud</div>
+              <div class="r-skill-desc">Apache Kafka, Amazon Web Services (AWS), Docker, Kubernetes, CI/CD Pipelines</div>
+            </div>
+            <div class="r-skill-box">
+              <div class="r-skill-cat">Databases &amp; Storage</div>
+              <div class="r-skill-desc">MongoDB, MySQL, Oracle DB, Redis Caching, Query Optimization</div>
+            </div>
+            <div class="r-skill-box">
+              <div class="r-skill-cat">Languages &amp; AI</div>
+              <div class="r-skill-desc">Java, Python 3, JavaScript / TypeScript, Generative AI &amp; LLMs, Prompt Engineering</div>
+            </div>
+            <div class="r-skill-box">
+              <div class="r-skill-cat">Frontend Development</div>
+              <div class="r-skill-desc">React JS, Material UI, HTML5, CSS3, Modern Web Components</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Awards & Publications -->
+        <section class="r-section">
+          <h2 class="r-section-title"><i class="fa-solid fa-trophy"></i> Awards &amp; Publications</h2>
+          
+          <div class="r-award-item">
+            <div>
+              <strong>Winner — Perfios TechLeap</strong>
+              <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 2px;">
+                Published Article: <em>"Embracing Reactive Programming: Optimizing Cloud Database and Web Operations"</em>
+                <a href="https://medium.com/perfiostechblog/embracing-reactive-programming-optimizing-cloud-database-and-web-operations-36e16913ded9" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); margin-left: 6px;">[Read on Medium]</a>
+              </div>
+            </div>
+            <span class="r-job-date">Mar 2025</span>
+          </div>
+
+          <div class="r-award-item">
+            <div>
+              <strong>1st Place Winner — Clash of Tech Titans Hackathon</strong>
+              <div style="font-size: 0.9rem; color: var(--text-secondary);">Perfios Software Solutions</div>
+            </div>
+            <span class="r-job-date">Mar 2023</span>
+          </div>
+
+          <div class="r-award-item">
+            <div>
+              <strong>Pat On the Back Award</strong>
+              <div style="font-size: 0.9rem; color: var(--text-secondary);">Recognized for exceptional engineering contributions and platform scalability</div>
+            </div>
+            <span class="r-job-date">Mar 2024</span>
+          </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="r-section">
+          <h2 class="r-section-title"><i class="fa-solid fa-certificate"></i> Certifications</h2>
+          <div class="r-award-item">
+            <div>
+              <strong>Generative AI with Large Language Models (LLMs)</strong>
+              <div style="font-size: 0.9rem; color: var(--text-secondary);">DeepLearning.AI / Coursera</div>
+            </div>
+            <span class="r-job-date">Apr 2024</span>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="r-section" style="margin-bottom: 0;">
+          <h2 class="r-section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+          <div class="r-job-header">
+            <div>
+              <strong>B.Tech in Information Science &amp; Engineering</strong> — PES University
+            </div>
+            <span class="r-job-date">July 2015 — July 2019</span>
+          </div>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 2px;">
+            Cumulative GPA: <strong>8.0 / 10.0 CGPA</strong> | Bangalore, India
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <script src="assets/js/custom-site.js"></script>
+</body>
+</html>
