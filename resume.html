@@ -14,7 +14,7 @@
 
   <style>
     .resume-page-wrapper {
-      padding: 100px 0 60px;
+      padding: 90px 0 40px;
       min-height: 100vh;
     }
 
@@ -23,46 +23,47 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
-      max-width: 860px;
-      margin: 0 auto 24px;
+      gap: 12px;
+      max-width: 820px;
+      margin: 0 auto 16px;
     }
 
-    /* 1-Page Paper Container */
+    /* Screen Paper Container */
     .resume-paper {
       background: var(--bg-card);
       border: 1px solid var(--border-glass);
       border-radius: var(--radius-lg);
-      padding: 40px 45px;
+      padding: 28px 36px;
       box-shadow: var(--shadow-lg), var(--shadow-glow);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      max-width: 860px;
+      max-width: 820px;
       margin: 0 auto;
-      font-size: 0.92rem;
-      line-height: 1.5;
+      font-size: 0.88rem;
+      line-height: 1.4;
     }
 
     .r-header {
       text-align: center;
       border-bottom: 2px solid var(--border-hover);
-      padding-bottom: 14px;
-      margin-bottom: 18px;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .r-name {
-      font-size: 2.2rem;
+      font-size: 1.9rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       color: var(--text-primary);
+      line-height: 1.1;
     }
 
     .r-title {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--accent-primary);
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
     .r-contact-line {
@@ -70,8 +71,8 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
-      font-size: 0.85rem;
+      gap: 8px;
+      font-size: 0.82rem;
       color: var(--text-secondary);
     }
 
@@ -84,79 +85,92 @@
     }
 
     .r-section {
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
 
     .r-section-title {
-      font-size: 1rem;
+      font-size: 0.88rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent-primary);
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
+      gap: 6px;
+      margin-bottom: 5px;
       border-bottom: 1px solid var(--border-color);
-      padding-bottom: 4px;
+      padding-bottom: 2px;
     }
 
     .r-company-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      font-size: 1.05rem;
+      font-size: 0.94rem;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 6px;
+      margin-bottom: 3px;
     }
 
     .r-job-block {
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
 
     .r-job-subhead {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--accent-secondary);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .r-job-date {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
     .r-bullets {
-      padding-left: 18px;
+      padding-left: 14px;
       margin: 0;
     }
 
     .r-bullets li {
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       color: var(--text-secondary);
-      font-size: 0.88rem;
-      line-height: 1.45;
+      font-size: 0.84rem;
+      line-height: 1.35;
     }
 
     .r-bullets li strong {
       color: var(--text-primary);
     }
 
+    .r-bottom-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .r-bottom-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .skills-row-item {
       display: flex;
-      gap: 8px;
-      margin-bottom: 4px;
-      font-size: 0.88rem;
+      gap: 4px;
+      margin-bottom: 2px;
+      font-size: 0.82rem;
+      line-height: 1.3;
     }
 
     .skills-row-label {
       font-weight: 700;
-      min-width: 190px;
+      min-width: 140px;
       color: var(--text-primary);
     }
 
@@ -168,74 +182,177 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 4px;
-      font-size: 0.88rem;
+      margin-bottom: 3px;
+      font-size: 0.82rem;
+      line-height: 1.3;
     }
 
-    /* Print Stylesheet specifically calibrated for 1 Page */
+    /* =========================================================
+       PRINT ENGINE: STRICT 1-PAGE A4 / LETTER CALIBRATION
+       ========================================================= */
     @page {
       size: A4 portrait;
-      margin: 8mm 10mm;
+      margin: 5mm 7mm 5mm 7mm;
     }
 
     @media print {
-      body {
+      *, *::before, *::after {
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+      
+      html, body {
         background: #ffffff !important;
         color: #111827 !important;
-        font-size: 11pt !important;
-        line-height: 1.35 !important;
+        font-size: 8pt !important;
+        line-height: 1.22 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100% !important;
+        max-height: 100% !important;
+        overflow: hidden !important;
       }
-      .header-nav, .resume-toolbar, .ambient-bg, footer, .theme-picker-wrapper {
+
+      .header-nav,
+      .resume-toolbar,
+      .ambient-bg,
+      footer,
+      .theme-picker-wrapper,
+      .mobile-menu-btn,
+      .toast-msg {
         display: none !important;
       }
+
       .resume-page-wrapper {
         padding: 0 !important;
+        margin: 0 !important;
         min-height: auto !important;
       }
+
+      .container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+
       .resume-paper {
         background: #ffffff !important;
         border: none !important;
-        box-shadow: none !important;
+        border-radius: 0 !important;
         padding: 0 !important;
+        margin: 0 !important;
         max-width: 100% !important;
-        font-size: 10pt !important;
+        font-size: 8pt !important;
+        line-height: 1.22 !important;
       }
+
       .r-header {
-        border-bottom: 1.5pt solid #374151 !important;
-        padding-bottom: 6pt !important;
-        margin-bottom: 10pt !important;
+        border-bottom: 1.5pt solid #1e293b !important;
+        padding-bottom: 3pt !important;
+        margin-bottom: 5pt !important;
       }
+
       .r-name {
         color: #000000 !important;
-        font-size: 20pt !important;
+        font-size: 16pt !important;
+        margin-bottom: 1pt !important;
       }
+
       .r-title {
-        color: #1f2937 !important;
-        font-size: 11pt !important;
+        color: #312e81 !important;
+        font-size: 9pt !important;
+        font-weight: 700 !important;
+        margin-bottom: 2pt !important;
       }
+
+      .r-contact-line {
+        color: #4b5563 !important;
+        font-size: 7.5pt !important;
+        gap: 5pt !important;
+      }
+
       .r-section {
-        margin-bottom: 10pt !important;
+        margin-bottom: 5pt !important;
       }
+
       .r-section-title {
-        color: #111827 !important;
-        border-bottom: 1pt solid #9ca3af !important;
-        font-size: 10pt !important;
-        margin-bottom: 6pt !important;
-        padding-bottom: 2pt !important;
+        color: #0f172a !important;
+        border-bottom: 1pt solid #cbd5e1 !important;
+        font-size: 8.2pt !important;
+        font-weight: 800 !important;
+        margin-bottom: 3pt !important;
+        padding-bottom: 1pt !important;
       }
-      .r-company-header, .skills-row-label, .r-bullets li strong {
+
+      .r-company-header {
         color: #000000 !important;
+        font-size: 8.5pt !important;
+        font-weight: 700 !important;
+        margin-bottom: 2pt !important;
       }
+
+      .r-job-block {
+        margin-bottom: 3pt !important;
+      }
+
       .r-job-subhead {
-        color: #1f2937 !important;
+        color: #1e1b4b !important;
+        font-size: 8pt !important;
+        font-weight: 700 !important;
+        margin-bottom: 1pt !important;
       }
-      .r-bullets li, .skills-row-val, .r-contact-line {
-        color: #374151 !important;
-        font-size: 9.5pt !important;
-        line-height: 1.35 !important;
+
+      .r-job-date {
+        color: #4b5563 !important;
+        font-size: 7.2pt !important;
       }
+
+      .r-bullets {
+        padding-left: 11pt !important;
+        margin: 0 !important;
+      }
+
+      .r-bullets li {
+        color: #334155 !important;
+        font-size: 7.5pt !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1.5pt !important;
+      }
+
+      .r-bullets li strong {
+        color: #0f172a !important;
+      }
+
+      .r-bottom-grid {
+        display: grid !important;
+        grid-template-columns: 1.15fr 0.85fr !important;
+        gap: 10pt !important;
+      }
+
+      .skills-row-item {
+        font-size: 7.4pt !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1.5pt !important;
+      }
+
+      .skills-row-label {
+        color: #000000 !important;
+        min-width: 115pt !important;
+        font-weight: 700 !important;
+      }
+
+      .skills-row-val {
+        color: #334155 !important;
+      }
+
+      .awards-list-item {
+        font-size: 7.4pt !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1.5pt !important;
+      }
+
       a {
-        color: #111827 !important;
+        color: #000000 !important;
         text-decoration: none !important;
       }
     }
@@ -259,11 +376,11 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="/#about" class="nav-link">About</a></li>
-        <li><a href="/#experience" class="nav-link">Experience</a></li>
-        <li><a href="/#projects" class="nav-link">Systems</a></li>
-        <li><a href="/#skills" class="nav-link">Skills</a></li>
-        <li><a href="/#contact" class="nav-link">Contact</a></li>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+        <li><a href="projects.html" class="nav-link">Systems</a></li>
+        <li><a href="resume.html" class="nav-link active" style="color: var(--accent-primary); font-weight: 700;"><i class="fa-solid fa-file-lines"></i> 1-Page Resume</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -314,7 +431,7 @@
         </div>
       </div>
 
-      <!-- Single Page Resume -->
+      <!-- Strictly 1-Page Single Sheet -->
       <article class="resume-paper">
         <!-- Header -->
         <header class="r-header">
@@ -336,8 +453,8 @@
         <!-- Executive Summary -->
         <section class="r-section">
           <h2 class="r-section-title"><i class="fa-solid fa-user-check"></i> Executive Summary</h2>
-          <p style="color: var(--text-secondary); line-height: 1.45; margin: 0;">
-            Results-driven Technical Lead Engineer with over 5+ years of production experience architecting high-throughput financial infrastructure, reactive microservices, and API platforms. Proven record scaling fintech backends to handle over <strong>1 Crore (10M+) daily transactions</strong>, modernizing India's Account Aggregator framework, and driving enterprise Generative AI initiatives.
+          <p style="color: var(--text-secondary); line-height: 1.35; margin: 0; font-size: 0.82rem;">
+            Results-driven Technical Lead Engineer with over 5+ years of production experience architecting high-throughput financial infrastructure, reactive microservices, and API platforms. Proven record scaling fintech backends to process over <strong>1 Crore (10,000,000+) daily transactions</strong>, modernizing India's Account Aggregator framework, and driving enterprise Generative AI initiatives.
           </p>
         </section>
 
@@ -346,24 +463,23 @@
           <h2 class="r-section-title"><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
 
           <div class="r-company-header">
-            <span>Perfios Software Solutions Pvt. Ltd.</span>
-            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">Jul 2019 — Present (5+ Years)</span>
+            <span>Perfios Software Solutions Pvt. Ltd. — Bangalore, India</span>
+            <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">Jul 2019 — Present (5+ Years)</span>
           </div>
 
-          <!-- Role 1 -->
+          <!-- Role 1: Tech Lead -->
           <div class="r-job-block">
             <div class="r-job-subhead">
               <span>Technical Lead Engineer</span>
               <span class="r-job-date">Apr 2024 — Present</span>
             </div>
             <ul class="r-bullets">
-              <li>Engineered the scaling of Perfios Account Aggregator (AA) framework microservices using <strong>Reactive programming</strong>, optimizing system throughput to handle close to <strong>1 Crore (10,000,000+) transactions/day</strong> while drastically minimizing latency.</li>
-              <li>Spearheaded architectural modernization of core Account Aggregator microservices, transitioning legacy monolithic components into resilient, loosely coupled microservices.</li>
-              <li>Pioneered strategic AI initiatives, leading end-to-end development of Generative AI Proof of Concepts (PoCs) evaluating technical feasibility, LLM benchmarks, and enterprise business impact.</li>
+              <li>Engineered the scaling of Perfios Account Aggregator (AA) framework microservices using <strong>Reactive programming</strong>, optimizing system throughput to handle close to <strong>1 Crore (10M+) daily transactions</strong> while drastically minimizing tail latency.</li>
+              <li>Spearheaded architectural modernization of core Account Aggregator microservices, transitioning legacy monolithic components into resilient microservices on <strong>Kubernetes &amp; AWS</strong>; spearheaded enterprise <strong>Generative AI PoCs</strong> with LLMs.</li>
             </ul>
           </div>
 
-          <!-- Role 2 -->
+          <!-- Role 2: Principal SDE -->
           <div class="r-job-block">
             <div class="r-job-subhead">
               <span>Principal Software Development Engineer</span>
@@ -375,7 +491,7 @@
             </ul>
           </div>
 
-          <!-- Role 3 -->
+          <!-- Role 3: Senior & SDE -->
           <div class="r-job-block">
             <div class="r-job-subhead">
               <span>Senior Software Engineer &amp; Software Developer</span>
@@ -383,74 +499,66 @@
             </div>
             <ul class="r-bullets">
               <li>Led technical onboarding for marquee Tier-1 Private and Public sector banks to the Account Aggregator platform, guiding stakeholders from sandbox certification to live production rollout.</li>
-              <li>Developed a high-throughput data streaming service using <strong>Apache Kafka</strong> to feed the Admin Dashboard, reducing metrics latency and enabling instant operational visibility into system health.</li>
-              <li>Engineered the Perfios-AA Admin Dashboard with Spring Boot REST services and React JS + Material UI; containerized services via Docker and automated deployments with GitLab CI/CD.</li>
+              <li>Developed a high-throughput real-time data streaming service using <strong>Apache Kafka</strong> to feed the Admin Dashboard; built Perfios-AA Admin Dashboard (React JS, Spring Boot) with automated <strong>Docker &amp; GitLab CI/CD</strong>.</li>
             </ul>
           </div>
         </section>
 
-        <!-- Technical Arsenal -->
-        <section class="r-section">
-          <h2 class="r-section-title"><i class="fa-solid fa-layer-group"></i> Technical Arsenal</h2>
-          <div class="skills-row-item">
-            <span class="skills-row-label">Backend &amp; Reactive:</span>
-            <span class="skills-row-val">Java, Spring Boot, Reactive Programming, RESTful APIs, Microservices, API Orchestration</span>
-          </div>
-          <div class="skills-row-item">
-            <span class="skills-row-label">Streaming &amp; Cloud:</span>
-            <span class="skills-row-val">Apache Kafka, AWS, Docker Containerization, Kubernetes, GitLab &amp; GitHub Actions CI/CD</span>
-          </div>
-          <div class="skills-row-item">
-            <span class="skills-row-label">AI, Languages &amp; Web:</span>
-            <span class="skills-row-val">Python 3, Generative AI (LLMs, Prompt Engineering), React JS, TypeScript, Material UI</span>
-          </div>
-          <div class="skills-row-item">
-            <span class="skills-row-label">Databases &amp; Storage:</span>
-            <span class="skills-row-val">MongoDB, MySQL, Oracle DB, Redis Caching, Query Plan Optimization</span>
-          </div>
-        </section>
+        <!-- Bottom 2-Column Grid: Skills & Honors -->
+        <div class="r-bottom-grid">
+          <!-- Left: Skills -->
+          <section class="r-section" style="margin-bottom: 0;">
+            <h2 class="r-section-title"><i class="fa-solid fa-layer-group"></i> Technical Arsenal</h2>
+            <div class="skills-row-item">
+              <span class="skills-row-label">Backend &amp; Reactive:</span>
+              <span class="skills-row-val">Java, Spring Boot, Reactive Programming, RESTful APIs, Microservices, API Orchestration</span>
+            </div>
+            <div class="skills-row-item">
+              <span class="skills-row-label">Cloud, Streaming &amp; DevOps:</span>
+              <span class="skills-row-val">Apache Kafka, AWS, Docker, Kubernetes, GitLab &amp; GitHub Actions CI/CD</span>
+            </div>
+            <div class="skills-row-item">
+              <span class="skills-row-label">AI, Languages &amp; Web:</span>
+              <span class="skills-row-val">Python 3, Generative AI (LLMs), React JS, TypeScript, Material UI</span>
+            </div>
+            <div class="skills-row-item">
+              <span class="skills-row-label">Databases &amp; Storage:</span>
+              <span class="skills-row-val">MongoDB, MySQL, Oracle DB, Redis Caching, Query Plan Optimization</span>
+            </div>
+          </section>
 
-        <!-- Honors & Publications -->
-        <section class="r-section">
-          <h2 class="r-section-title"><i class="fa-solid fa-trophy"></i> Honors, Publications &amp; Certifications</h2>
-          <div class="awards-list-item">
-            <div>
-              <strong>Winner — Perfios TechLeap:</strong> Published technical paper <em>"Embracing Reactive Programming"</em> on Medium
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Mar 2025</span>
-          </div>
-          <div class="awards-list-item">
-            <div>
-              <strong>1st Place Winner — Clash of Tech Titans Hackathon:</strong> Top honor across company-wide engineering hackathon
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Mar 2023</span>
-          </div>
-          <div class="awards-list-item">
-            <div>
-              <strong>Pat On the Back Award:</strong> Recognized by executive leadership for architectural ownership of the FIP module
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Mar 2024</span>
-          </div>
-          <div class="awards-list-item">
-            <div>
-              <strong>Generative AI with Large Language Models:</strong> DeepLearning.AI &amp; Coursera certified
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Apr 2024</span>
-          </div>
-        </section>
+          <!-- Right: Honors & Education -->
+          <div>
+            <section class="r-section">
+              <h2 class="r-section-title"><i class="fa-solid fa-trophy"></i> Honors &amp; Certifications</h2>
+              <div class="awards-list-item">
+                <div><strong>Winner — Perfios TechLeap:</strong> Published on Medium</div>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">Mar 2025</span>
+              </div>
+              <div class="awards-list-item">
+                <div><strong>1st Place Winner — Hackathon:</strong> Tech Titans</div>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">Mar 2023</span>
+              </div>
+              <div class="awards-list-item">
+                <div><strong>Pat On the Back Award:</strong> FIP Module Architecture</div>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">Mar 2024</span>
+              </div>
+              <div class="awards-list-item">
+                <div><strong>Generative AI with LLMs:</strong> DeepLearning.AI</div>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">Apr 2024</span>
+              </div>
+            </section>
 
-        <!-- Education -->
-        <section class="r-section" style="margin-bottom: 0;">
-          <h2 class="r-section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
-            <div>
-              <strong>B.Tech in Information Science &amp; Engineering</strong> — PES University, Bangalore
-            </div>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-primary); font-weight: 700;">
-              8.0 / 10.0 CGPA
-            </div>
+            <section class="r-section" style="margin-bottom: 0;">
+              <h2 class="r-section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.78rem;">
+                <div><strong>B.Tech Information Science</strong> (PES Univ)</div>
+                <div style="font-family: var(--font-mono); color: var(--accent-primary); font-weight: 700;">8.0 CGPA</div>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
+
       </article>
     </div>
   </main>
