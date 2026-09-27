@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience & Career Journey | Aravind Suresh</title>
+  
+  <meta name="description" content="Detailed engineering leadership and architectural career trajectory of Aravind Suresh - Technical Lead Engineer at Perfios.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%200%20100%20100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><text y=%22.68em%22 x=%2250%25%22 font-size=%2252%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>AS</text></svg>">
+  
+  <!-- Font Awesome & Custom Theme Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/custom-theme.css">
+  
+  <style>
+    .page-header-banner {
+      padding: 130px 0 50px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .deep-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-bottom: 36px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: var(--transition);
+    }
+    .deep-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+    .deep-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+    }
+    .deep-role {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+    .deep-company {
+      font-size: 1.1rem;
+      color: var(--accent-primary);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .deep-date {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: 1px solid var(--border-color);
+    }
+    .deep-body h4 {
+      font-size: 1.05rem;
+      margin: 18px 0 8px;
+      color: var(--accent-secondary);
+    }
+    .deep-body p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .deep-bullets {
+      padding-left: 20px;
+      margin-bottom: 18px;
+    }
+    .deep-bullets li {
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .deep-bullets li strong {
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Orbs for Background Glow -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-grid"></div>
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="header-nav">
+    <div class="container nav-container">
+      <a href="/" class="nav-logo" aria-label="Aravind Suresh Home">
+        <div class="logo-badge">AS</div>
+        <span>Aravind Suresh</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="experience.html" class="nav-link active">Experience</a></li>
+        <li><a href="projects.html" class="nav-link">Systems</a></li>
+        <li><a href="resume.html" class="nav-link" style="color: var(--accent-primary); font-weight: 700;"><i class="fa-solid fa-file-lines"></i> 1-Page Resume</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Picker -->
+        <div class="theme-picker-wrapper">
+          <button class="theme-btn" id="theme-picker-btn" aria-label="Select theme palette">
+            <i class="fa-solid fa-palette"></i>
+            <span id="current-theme-label">Theme</span>
+            <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-option active" data-set-theme="midnight">
+              <span class="theme-color-dot dot-midnight"></span> Midnight (Dark)
+            </button>
+            <button class="theme-option" data-set-theme="cyber">
+              <span class="theme-color-dot dot-cyber"></span> Cyberpunk (Neon)
+            </button>
+            <button class="theme-option" data-set-theme="nord">
+              <span class="theme-color-dot dot-nord"></span> Nord Frost
+            </button>
+            <button class="theme-option" data-set-theme="light">
+              <span class="theme-color-dot dot-light"></span> Minimal Light
+            </button>
+          </div>
+        </div>
+
+        <a href="resume.html" class="btn btn-primary" style="padding: 9px 18px; font-size: 0.88rem;">
+          <i class="fa-solid fa-file-pdf"></i> 1-Page Resume
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Header Banner -->
+    <div class="page-header-banner">
+      <div class="container">
+        <span class="section-tag"><i class="fa-solid fa-briefcase"></i> Career Journey</span>
+        <h1 class="section-title">5+ Years of Engineering Leadership</h1>
+        <p class="section-desc" style="max-width: 720px; margin: 0 auto;">
+          From intern to Technical Lead Engineer at Perfios, driving the architecture, high-throughput scalability, and AI modernization of India's Account Aggregator ecosystem.
+        </p>
+      </div>
+    </div>
+
+    <!-- Experience Deep Dive -->
+    <section style="padding: 60px 0;">
+      <div class="container" style="max-width: 960px;">
+
+        <!-- Role 1 -->
+        <div class="deep-card">
+          <div class="deep-card-header">
+            <div>
+              <h2 class="deep-role">Technical Lead Engineer</h2>
+              <div class="deep-company">Perfios Software Solutions Pvt Ltd • Bangalore, India</div>
+            </div>
+            <span class="deep-date">Apr 2024 — Present</span>
+          </div>
+          <div class="deep-body">
+            <p>
+              As Technical Lead, I lead the core engineering efforts for the Account Aggregator (AA) platform, ensuring high availability, sub-second latency, and horizontal scalability under massive financial transaction volume.
+            </p>
+            <h4>Key Architectural Milestones:</h4>
+            <ul class="deep-bullets">
+              <li>
+                <strong>Scaling to 10M+ Daily Transactions:</strong> Re-architected critical bottleneck microservices to embrace <strong>Reactive programming patterns</strong> with Spring Boot and Java reactive streams. Eliminated thread pool starvation, resulting in massive throughput gains and significant memory footprint reduction under peak traffic spikes.
+              </li>
+              <li>
+                <strong>Microservices Modernization:</strong> Spearheaded the decoupling of legacy monolithic workflows into distributed, loosely coupled microservices deployed on Kubernetes, establishing resilience patterns like circuit breakers and retry policies.
+              </li>
+              <li>
+                <strong>Strategic Generative AI Initiatives:</strong> Directed the exploration and prototyping of Generative AI Proof of Concepts (PoCs) evaluating transformer models, safety boundaries, and prompt architectures for financial data intelligence.
+              </li>
+            </ul>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Reactive Programming</span>
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Kubernetes</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">AWS</span>
+              <span class="tech-tag">Generative AI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="deep-card">
+          <div class="deep-card-header">
+            <div>
+              <h2 class="deep-role">Principal Software Development Engineer</h2>
+              <div class="deep-company">Perfios Software Solutions Pvt Ltd • Bangalore, India</div>
+            </div>
+            <span class="deep-date">Apr 2023 — Mar 2024</span>
+          </div>
+          <div class="deep-body">
+            <p>
+              Focused on core platform extensibility, developer experience, and mission-critical banking integration layers.
+            </p>
+            <h4>Key Architectural Milestones:</h4>
+            <ul class="deep-bullets">
+              <li>
+                <strong>Enterprise API Orchestration Layer:</strong> Designed and deployed an extensible API Orchestration framework that abstracted disparate banking protocols, reducing integration onboarding time for new institutional partners from months down to a few weeks.
+              </li>
+              <li>
+                <strong>FIP Module End-to-End SDLC:</strong> Took complete architectural ownership of the Financial Information Provider (FIP) module from whiteboard system design to a high-availability production service processing millions of customer requests per day.
+              </li>
+              <li>
+                <strong>Ecosystem Market Penetration:</strong> Collaborated with cross-functional leadership and enterprise partners to roll out growth features, accelerating the Account Aggregator framework adoption across Tier-1 financial institutions.
+              </li>
+            </ul>
+            <div class="project-tech-tags">
+              <span class="tech-tag">API Orchestration</span>
+              <span class="tech-tag">System Design</span>
+              <span class="tech-tag">RESTful Architecture</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Oracle DB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="deep-card">
+          <div class="deep-card-header">
+            <div>
+              <h2 class="deep-role">Senior Software Engineer</h2>
+              <div class="deep-company">Perfios Software Solutions Pvt Ltd • Bangalore, India</div>
+            </div>
+            <span class="deep-date">Apr 2021 — Jun 2023</span>
+          </div>
+          <div class="deep-body">
+            <p>
+              Drove institutional banking technical integration and high-throughput real-time data streaming pipelines.
+            </p>
+            <h4>Key Architectural Milestones:</h4>
+            <ul class="deep-bullets">
+              <li>
+                <strong>Marquee Bank Technical Onboarding:</strong> Led the technical integration of major Indian Public and Private sector banks into the Perfios AA sandbox and production environments, establishing stringent security and regulatory compliance standards.
+              </li>
+              <li>
+                <strong>Kafka Real-Time Streaming Service:</strong> Engineered a high-throughput data streaming pipeline using <strong>Apache Kafka</strong> to deliver real-time telemetry metrics and transaction status updates to internal and partner dashboards.
+              </li>
+            </ul>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Apache Kafka</span>
+              <span class="tech-tag">Event-Driven Architecture</span>
+              <span class="tech-tag">Banking Integrations</span>
+              <span class="tech-tag">Java</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 4 -->
+        <div class="deep-card">
+          <div class="deep-card-header">
+            <div>
+              <h2 class="deep-role">Software Developer &amp; Intern</h2>
+              <div class="deep-company">Perfios Software Solutions Pvt Ltd • Bangalore, India</div>
+            </div>
+            <span class="deep-date">Jan 2019 — Mar 2021</span>
+          </div>
+          <div class="deep-body">
+            <p>
+              Built internal full-stack administration tools, established DevOps pipelines, and modernized developer tooling.
+            </p>
+            <h4>Key Milestones:</h4>
+            <ul class="deep-bullets">
+              <li>
+                <strong>Perfios-AA Admin Dashboard:</strong> Engineered the primary administrative portal using Spring Boot RESTful web services paired with a responsive React JS + Material UI interface, giving operators full control over module configurations.
+              </li>
+              <li>
+                <strong>CI/CD &amp; Dockerization:</strong> Containerized applications using Docker and authored automated GitLab CI/CD pipelines, bringing consistency and speed to production deployments.
+              </li>
+            </ul>
+            <div class="project-tech-tags">
+              <span class="tech-tag">React JS</span>
+              <span class="tech-tag">Material UI</span>
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">GitLab CI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action Banner -->
+        <div style="text-align: center; margin-top: 50px;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 14px;">Looking for the 1-Page Summary?</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 24px;">Download or view the recruiter-ready single-page executive resume.</p>
+          <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+            <a href="resume.html" class="btn btn-primary">
+              <i class="fa-solid fa-file-lines"></i> Open 1-Page Resume
+            </a>
+            <a href="contact.html" class="btn btn-secondary">
+              <i class="fa-solid fa-paper-plane"></i> Get in Touch
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <a href="/" class="nav-logo">
+          <div class="logo-badge">AS</div>
+          <span>Aravind Suresh</span>
+        </a>
+
+        <div class="footer-social-links">
+          <a href="https://github.com/Aravind1998" target="_blank" rel="noopener noreferrer" class="btn-icon" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:aravindsuresh98@gmail.com" class="btn-icon" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://medium.com/perfiostechblog/embracing-reactive-programming-optimizing-cloud-database-and-web-operations-36e16913ded9" target="_blank" rel="noopener noreferrer" class="btn-icon" title="Medium Blog">
+            <i class="fa-brands fa-medium"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Aravind Suresh. Technical Lead Engineer.
+        </div>
+        <a href="#" class="back-to-top">
+          <span>Back to Top</span>
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/custom-site.js"></script>
+</body>
+</html>
