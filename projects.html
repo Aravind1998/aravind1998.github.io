@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Systems & Architecture Case Studies | Aravind Suresh</title>
   
-  <meta name="description" content="Technical breakdowns and architecture case studies by Aravind Suresh - Reactive microservices, API orchestration, and Kafka streaming.">
+  <meta name="description" content="Technical breakdowns and architecture case studies by Aravind Suresh (Senior Technical Lead Engineer) - PFM B2B Rearchitecture (SaaS &amp; On-Prem), Reactive microservices, InfoSec AI, and Kafka streaming.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%200%20100%20100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><text y=%22.68em%22 x=%2250%25%22 font-size=%2252%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>AS</text></svg>">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -155,7 +155,7 @@
         <span class="section-tag"><i class="fa-solid fa-server"></i> Architecture &amp; Scale</span>
         <h1 class="section-title">Core Systems &amp; Technical Case Studies</h1>
         <p class="section-desc" style="max-width: 720px; margin: 0 auto;">
-          An engineering breakdown of critical distributed architectures, reactive frameworks, and event-driven data streaming pipelines.
+          An engineering breakdown of critical distributed architectures, PFM B2B SaaS &amp; on-premises rearchitecture, reactive frameworks, and event-driven data streaming pipelines.
         </p>
       </div>
     </div>
@@ -163,7 +163,65 @@
     <section style="padding: 60px 0;">
       <div class="container" style="max-width: 960px;">
 
-        <!-- Case Study 1 -->
+        <!-- Case Study 1: PFM B2B Dual-Target Architecture -->
+        <article class="system-study-card">
+          <div class="system-badge-row">
+            <span class="system-metric-pill"><i class="fa-solid fa-cloud-arrow-up"></i> Dual SaaS &amp; On-Premises Architecture</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Spring Boot • Kubernetes • Claude Code • InfoSec AI</span>
+          </div>
+          <h2 class="system-title">PFM B2B Rearchitecture for SaaS &amp; On-Premises Deployments</h2>
+          <p class="system-overview">
+            Perfios's Personal Finance Management (PFM) B2B solutions empower enterprise banking institutions and fintechs to deliver automated transaction categorization, cash flow analysis, and wealth management insights. As enterprise demands diversified across public cloud SaaS and private, air-gapped bank networks, the platform required a ground-up rearchitecture to eliminate divergent codebase maintenance and guarantee strict multi-tenant isolation.
+          </p>
+          <div class="challenge-solution-grid">
+            <div class="cs-box cs-challenge">
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h4>
+              <p>Tier-1 banking clients enforce stringent on-premises data residency, air-gapped network restrictions, and dedicated database clustering, while digital fintechs require high-elasticity multi-tenant SaaS. Maintaining divergent codebases risked release fragmentation and high engineering overhead.</p>
+            </div>
+            <div class="cs-box cs-solution">
+              <h4><i class="fa-solid fa-circle-check"></i> The Engineering Solution</h4>
+              <p>Architected a decoupled, modular microservices framework with environment-agnostic configuration layers. Standardized containerized deployments with Docker and Kubernetes/Helm, implemented InfoSec AI guardrails for financial data sanitization, and leveraged Claude Code agentic workflows to accelerate large-scale codebase refactoring.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;">
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">Multi-Tenant SaaS</span>
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">On-Premises Banking</span>
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">InfoSec AI &amp; Guardrails</span>
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">Claude Code Workflows</span>
+          </div>
+        </article>
+
+        <!-- Case Study 2: InfoSec VAPT Automation -->
+        <article class="system-study-card">
+          <div class="system-badge-row">
+            <span class="system-metric-pill"><i class="fa-solid fa-shield-halved"></i> Automated VAPT &amp; Dependency Remediation</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Google ADK • Claude Slash Commands • Harbor API • Tenable API • GitLab Ultimate</span>
+          </div>
+          <h2 class="system-title">InfoSec VAPT &amp; Dependency Scanning Automation with Google ADK &amp; Claude Code</h2>
+          <p class="system-overview">
+            In mission-critical banking and fintech infrastructure, continuous vulnerability assessment and penetration testing (VAPT) and third-party dependency scanning are non-negotiable compliance imperatives. Manual vulnerability triage between container registries, security dashboards, and code repositories previously caused remediation latency and high developer overhead.
+          </p>
+          <div class="challenge-solution-grid">
+            <div class="cs-box cs-challenge">
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h4>
+              <p>Security findings across Harbor container registries and Tenable vulnerability scans required manual correlation against source repositories, manual CVE impact assessment, and repetitive pull request drafting for GitLab Ultimate pipeline blockers.</p>
+            </div>
+            <div class="cs-box cs-solution">
+              <h4><i class="fa-solid fa-circle-check"></i> The Engineering Solution</h4>
+              <p>Engineered an agentic DevSecOps automation workflow leveraging Google ADK (Agent Development Kit) and custom Claude slash commands. Directly interfaced with Harbor and Tenable REST APIs to automatically query scan reports, extract high/critical CVEs, correlate impacted dependencies, and synthesize automated GitLab Ultimate VAPT fixes and dependency upgrade merge requests with automated test suites.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;">
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">Google ADK</span>
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">Claude Slash Commands</span>
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">Harbor API</span>
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">Tenable API</span>
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">GitLab Ultimate VAPT</span>
+            <span class="tech-tag" style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); padding: 5px 12px; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--accent-primary);">DevSecOps Automation</span>
+          </div>
+        </article>
+
+        <!-- Case Study 3: Account Aggregator -->
         <article class="system-study-card">
           <div class="system-badge-row">
             <span class="system-metric-pill"><i class="fa-solid fa-bolt"></i> 10,000,000+ Daily Transactions</span>
@@ -297,7 +355,7 @@
 
       <div class="footer-bottom">
         <div>
-          &copy; 2026 Aravind Suresh. Technical Lead Engineer.
+          &copy; 2026 Aravind Suresh. Senior Technical Lead Engineer.
         </div>
         <a href="#" class="back-to-top">
           <span>Back to Top</span>
