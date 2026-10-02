@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Title (Engaging &amp; Specific) | Aravind Suresh</title>
+
+  <!-- SEO & Metadata -->
+  <meta name="description" content="Brief 150-160 character description of this technical deep dive, architecture analysis, or repo learnings.">
+  <meta name="author" content="Aravind Suresh">
+  <meta name="keywords" content="Distributed Systems, Reactive Programming, Spring WebFlux, Software Architecture, Aravind Suresh">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aravind1998.github.io/blog-post-template.html">
+  <meta property="og:title" content="Article Title | Aravind Suresh">
+  <meta property="og:description" content="Brief summary for social embeds and search results.">
+  <meta property="og:image" content="https://aravind1998.github.io/assets/img/elaborate-ai-bubble-graph.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://aravind1998.github.io/assets/img/elaborate-ai-bubble-graph.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%200%20100%20100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><text y=%22.68em%22 x=%2250%25%22 font-size=%2252%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>AS</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/custom-theme.css">
+
+  <style>
+    .article-header {
+      padding: 125px 0 45px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .article-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: var(--accent-subtle);
+      color: var(--accent-cyan);
+      border: 1px solid var(--border-hover);
+      font-weight: 700;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .article-title {
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      color: var(--text-primary);
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .article-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 780px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      flex-wrap: wrap;
+    }
+
+    .article-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 50px 20px 80px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+    }
+
+    .article-content h2 {
+      font-size: 1.85rem;
+      color: var(--text-primary);
+      margin: 48px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .article-content h3 {
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      margin: 32px 0 16px;
+    }
+
+    .article-content p {
+      margin-bottom: 22px;
+    }
+
+    .article-content ul, .article-content ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+    }
+
+    .article-content li {
+      margin-bottom: 10px;
+    }
+
+    .callout-box {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 4px solid var(--primary);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 30px 0;
+    }
+
+    .callout-box.warning {
+      background: rgba(245, 158, 11, 0.08);
+      border-left-color: #f59e0b;
+    }
+
+    .code-block {
+      background: #0d1117;
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: #e6edf3;
+      line-height: 1.6;
+      margin: 24px 0;
+    }
+
+    .author-card {
+      margin-top: 60px;
+      padding: 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <div class="logo-badge">AS</div>
+        <span>Aravind Suresh</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+        <li><a href="projects.html" class="nav-link">Systems</a></li>
+        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+        <li><a href="resume.html" class="nav-link">Resume</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container">
+      <div class="article-badge">
+        <i class="fa-solid fa-microchip"></i> Architectural Teardown
+      </div>
+      <h1 class="article-title">Title: Architectural Learnings from Repo/Pattern</h1>
+      <p class="article-subtitle">
+        A succinct subtitle summarizing the core technical thesis, performance bottlenecks solved, and key production takeaways.
+      </p>
+      <div class="article-meta">
+        <span><i class="fa-regular fa-calendar"></i> October 2026</span>
+        <span>•</span>
+        <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+        <span>•</span>
+        <span>By <strong>Aravind Suresh</strong> (Senior Technical Lead)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <main class="article-content">
+
+    <p>
+      Opening introduction. Set the stage: What repository, system, or pattern are we analyzing? Why does it matter in high-throughput enterprise systems?
+    </p>
+
+    <div class="callout-box">
+      <strong style="color: var(--primary-light);"><i class="fa-solid fa-lightbulb"></i> Core Takeaway:</strong>
+      <p style="margin: 6px 0 0; color: var(--text-secondary);">
+        Summarize the primary architectural insight up front for the reader.
+      </p>
+    </div>
+
+    <h2><i class="fa-solid fa-layer-group" style="color: var(--accent-cyan); font-size: 1.4rem;"></i> 1. The Core Architecture</h2>
+    <p>
+      Explain the mechanics of the design or repo under examination. Discuss thread lifecycles, memory structures, or serialization paths.
+    </p>
+
+    <pre class="code-block"><code>// Example code snippet showing critical logic or configuration
+public Flux&lt;EventRecord&gt; streamPipeline(String partitionKey) {
+    return eventEmitter.listen(partitionKey)
+        .filter(EventRecord::isValid)
+        .bufferTimeout(500, Duration.ofMillis(100))
+        .flatMap(batchRepository::saveAll);
+}</code></pre>
+
+    <h2><i class="fa-solid fa-chart-line" style="color: var(--primary-light); font-size: 1.4rem;"></i> 2. Bottlenecks &amp; Trade-offs</h2>
+    <p>
+      Discuss where traditional implementations break down, latency percentiles under load (p99/p99.9), and how this pattern addresses them.
+    </p>
+
+    <div class="callout-box warning">
+      <strong style="color: #f59e0b;"><i class="fa-solid fa-triangle-exclamation"></i> Production Pitfall:</strong>
+      <p style="margin: 6px 0 0; color: var(--text-secondary);">
+        Highlight edge cases, connection pool starvation, or memory leakage patterns to guard against.
+      </p>
+    </div>
+
+    <h2><i class="fa-solid fa-check-double" style="color: #10b981; font-size: 1.4rem;"></i> 3. Key Takeaways for Production</h2>
+    <ul>
+      <li><strong>Point 1:</strong> Concrete rule or configuration guideline.</li>
+      <li><strong>Point 2:</strong> Observability metric to monitor.</li>
+      <li><strong>Point 3:</strong> Failure recovery or circuit-breaker recommendation.</li>
+    </ul>
+
+    <!-- Author Card -->
+    <div class="author-card">
+      <div class="logo-badge" style="width: 56px; height: 56px; font-size: 1.4rem; flex-shrink: 0;">AS</div>
+      <div>
+        <h4 style="margin: 0 0 6px; color: var(--text-primary);">Aravind Suresh</h4>
+        <p style="margin: 0 0 10px; font-size: 0.9rem; color: var(--text-secondary);">
+          Senior Technical Lead Engineer specializing in high-throughput reactive backends, enterprise fintech architectures, and agentic InfoSec workflows.
+        </p>
+        <div style="display: flex; gap: 12px; font-size: 0.88rem;">
+          <a href="blog.html" style="color: var(--primary-light);">← Back to All Articles</a>
+          <span style="color: var(--border-color);">|</span>
+          <a href="https://github.com/Aravind1998" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);"><i class="fa-brands fa-github"></i> GitHub</a>
+          <span style="color: var(--border-color);">|</span>
+          <a href="contact.html" style="color: var(--text-muted);"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <a href="/" class="nav-logo">
+          <div class="logo-badge">AS</div>
+          <span>Aravind Suresh</span>
+        </a>
+
+        <div class="footer-social-links">
+          <a href="https://github.com/Aravind1998" target="_blank" rel="noopener noreferrer" class="btn-icon" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:aravindsuresh98@gmail.com" class="btn-icon" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://medium.com/perfiostechblog/embracing-reactive-programming-optimizing-cloud-database-and-web-operations-36e16913ded9" target="_blank" rel="noopener noreferrer" class="btn-icon" title="Medium Publication">
+            <i class="fa-brands fa-medium"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aravind Suresh. Senior Technical Lead Engineer.</div>
+        <a href="#" class="back-to-top"><span>Back to Top</span> <i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/custom-site.js"></script>
+</body>
+</html>
