@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Blog &amp; Systems Insights | Aravind Suresh</title>
+
+  <!-- SEO & Metadata -->
+  <meta name="description" content="Technical essays, architectural breakdowns, and macroeconomic analyses by Aravind Suresh (Senior Technical Lead Engineer at Perfios). Topics include AI infrastructure, reactive systems, and engineering leadership.">
+  <meta name="author" content="Aravind Suresh">
+  <meta name="keywords" content="Aravind Suresh Blog, AI Infrastructure, Dot-Com Bubble, Reactive Systems, Spring WebFlux, Software Architecture, Perfios">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aravind1998.github.io/blog.html">
+  <meta property="og:title" content="Engineering Blog &amp; Systems Insights | Aravind Suresh">
+  <meta property="og:description" content="Technical essays, architectural breakdowns, and macroeconomic analyses by Aravind Suresh.">
+  <meta property="og:image" content="https://aravind1998.github.io/assets/img/elaborate-ai-bubble-graph.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://aravind1998.github.io/assets/img/elaborate-ai-bubble-graph.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%200%20100%20100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/><text y=%22.68em%22 x=%2250%25%22 font-size=%2252%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>AS</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/custom-theme.css">
+
+  <style>
+    .page-header-banner {
+      padding: 130px 0 50px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Featured Post Card */
+    .featured-post-hero {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 50px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      transition: var(--transition);
+    }
+
+    .featured-post-hero:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 900px) {
+      .featured-post-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .featured-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      min-height: 280px;
+    }
+
+    .featured-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .featured-post-hero:hover .featured-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .featured-content {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .featured-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: 1px solid var(--border-color);
+      font-weight: 700;
+    }
+
+    .featured-pill.gradient {
+      background: var(--accent-gradient);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .featured-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+
+    .featured-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .featured-title a:hover {
+      color: var(--accent-primary);
+    }
+
+    .featured-excerpt {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Blog Filter Bar */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .filter-chip {
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-main);
+    }
+
+    .filter-chip:hover {
+      color: var(--text-primary);
+      border-color: var(--border-hover);
+    }
+
+    .filter-chip.active {
+      background: var(--accent-gradient);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px var(--glow-color);
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+
+    .card-top-tags {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-weight: 600;
+    }
+
+    .card-date {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .card-title a:hover {
+      color: var(--accent-primary);
+    }
+
+    .card-excerpt {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.85rem;
+    }
+
+    .read-time {
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .read-link {
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .read-link:hover {
+      gap: 10px;
+      color: var(--accent-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-grid"></div>
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+    <div class="ambient-orb ambient-orb-3"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="header-nav">
+    <div class="container nav-container">
+      <a href="/" class="nav-logo" aria-label="Aravind Suresh Home">
+        <div class="logo-badge">AS</div>
+        <span>Aravind Suresh</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+        <li><a href="projects.html" class="nav-link">Systems</a></li>
+        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+        <li><a href="resume.html" class="nav-link" style="color: var(--accent-primary); font-weight: 700;"><i class="fa-solid fa-file-lines"></i> 1-Page Resume</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Picker -->
+        <div class="theme-picker-wrapper">
+          <button class="theme-btn" id="theme-picker-btn" aria-label="Select theme palette">
+            <i class="fa-solid fa-palette"></i>
+            <span id="current-theme-label">Theme</span>
+            <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-option active" data-set-theme="midnight">
+              <span class="theme-color-dot dot-midnight"></span> Midnight (Dark)
+            </button>
+            <button class="theme-option" data-set-theme="cyber">
+              <span class="theme-color-dot dot-cyber"></span> Cyberpunk (Neon)
+            </button>
+            <button class="theme-option" data-set-theme="nord">
+              <span class="theme-color-dot dot-nord"></span> Nord Frost
+            </button>
+            <button class="theme-option" data-set-theme="light">
+              <span class="theme-color-dot dot-light"></span> Minimal Light
+            </button>
+          </div>
+        </div>
+
+        <a href="resume.html" class="btn btn-primary" style="padding: 9px 18px; font-size: 0.88rem;">
+          <i class="fa-solid fa-file-pdf"></i> Resume
+        </a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Header Banner -->
+    <div class="page-header-banner">
+      <div class="container">
+        <span class="section-tag"><i class="fa-solid fa-newspaper"></i> Technical Writing &amp; Systems Thinking</span>
+        <h1 class="section-title">Engineering Blog &amp; Analysis</h1>
+        <p class="section-desc" style="max-width: 720px; margin: 0 auto;">
+          Architectural teardowns, distributed systems engineering, tech macroeconomics, and battle-tested patterns for high-throughput platforms.
+        </p>
+      </div>
+    </div>
+
+    <section style="padding: 60px 0;">
+      <div class="container">
+
+        <!-- Featured Post Hero -->
+        <article class="featured-post-hero" data-category="ai macro systems">
+          <div class="featured-img-wrap">
+            <a href="blog-ai-bubble-vs-dotcom.html">
+              <img src="assets/img/elaborate-ai-bubble-graph.jpg" alt="AI Bubble vs Dot-Com Bubble Comparative Chart">
+            </a>
+          </div>
+          <div class="featured-content">
+            <div class="featured-badge-row">
+              <span class="featured-pill gradient"><i class="fa-solid fa-star"></i> Featured Deep Dive</span>
+              <span class="featured-pill"><i class="fa-solid fa-microchip"></i> AI Infrastructure</span>
+              <span class="featured-pill"><i class="fa-solid fa-chart-line"></i> Macroeconomics</span>
+            </div>
+
+            <h2 class="featured-title">
+              <a href="blog-ai-bubble-vs-dotcom.html">
+                Where is the AI Bubble Right Now Compared to the 2000 Dot-Com Bubble?
+              </a>
+            </h2>
+
+            <p class="featured-excerpt">
+              A simple, plain-English breakdown with a visual graph comparing where AI stands today vs the 2000 internet bubble, what happens next, and why it won't wipe out like 2000.
+            </p>
+
+            <div class="featured-meta">
+              <span><i class="fa-regular fa-calendar"></i> October 2026</span>
+              <span>•</span>
+              <span><i class="fa-regular fa-clock"></i> 12 min read</span>
+              <span>•</span>
+              <span><i class="fa-solid fa-chart-simple"></i> Infographic &amp; Interactive Widget</span>
+            </div>
+
+            <div>
+              <a href="blog-ai-bubble-vs-dotcom.html" class="btn btn-primary" style="display: inline-flex;">
+                Read Full Essay <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category Filters -->
+        <div class="filter-bar">
+          <button class="filter-chip active" data-filter="all">All Articles</button>
+          <button class="filter-chip" data-filter="ai">AI &amp; Infrastructure</button>
+          <button class="filter-chip" data-filter="reactive">Reactive &amp; Distributed Systems</button>
+          <button class="filter-chip" data-filter="leadership">Architecture &amp; Leadership</button>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="blog-grid" id="articles-grid">
+
+          <!-- Post 1: Reactive Programming (Award Winner on Medium) -->
+          <article class="blog-card" data-category="reactive leadership">
+            <div>
+              <div class="card-top-tags">
+                <span class="card-tag" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">
+                  <i class="fa-solid fa-trophy"></i> Winner — Perfios TechLeap
+                </span>
+                <span class="card-date">March 2025</span>
+              </div>
+              <h3 class="card-title">
+                <a href="https://medium.com/perfiostechblog/embracing-reactive-programming-optimizing-cloud-database-and-web-operations-36e16913ded9" target="_blank" rel="noopener noreferrer">
+                  Embracing Reactive Programming: Optimizing Cloud Database &amp; Web Operations
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                A comprehensive guide to building non-blocking cloud systems with Spring WebFlux, Project Reactor, and R2DBC. How reactive I/O maximizes thread utilization, reduces memory footprints, and handles extreme concurrency without thread starvation.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time"><i class="fa-brands fa-medium"></i> Published on Medium</span>
+              <a href="https://medium.com/perfiostechblog/embracing-reactive-programming-optimizing-cloud-database-and-web-operations-36e16913ded9" target="_blank" rel="noopener noreferrer" class="read-link">
+                Read on Medium <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Post 2: PFM B2B Rearchitecture -->
+          <article class="blog-card" data-category="reactive leadership">
+            <div>
+              <div class="card-top-tags">
+                <span class="card-tag">Systems Architecture</span>
+                <span class="card-date">Production Case Study</span>
+              </div>
+              <h3 class="card-title">
+                <a href="projects.html#system-pfm">
+                  Deconstructing Monolith to Reactive Microservices: Scaling to 10M+ Txns/Day
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                Architectural breakdown of transitioning India's leading Personal Finance Management (PFM) B2B engine from a blocking monolith to an event-driven reactive cluster with dual-mode deployment (SaaS &amp; On-Premise Air-Gapped Banking VPCs).
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 8 min case study</span>
+              <a href="projects.html#system-pfm" class="read-link">
+                View Architecture <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Post 3: InfoSec AI & Agentic Security -->
+          <article class="blog-card" data-category="ai leadership">
+            <div>
+              <div class="card-top-tags">
+                <span class="card-tag">InfoSec &amp; AI Agents</span>
+                <span class="card-date">Engineering Practice</span>
+              </div>
+              <h3 class="card-title">
+                <a href="projects.html#system-infosec">
+                  Agentic InfoSec: Automated Vulnerability Triage and Static Analysis
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                How we leveraged AST-guided Claude Code agentic workflows to automatically triage, verify, and resolve OWASP Top 10 vulnerabilities across enterprise Java codebases with zero breaking functional regressions.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 6 min case study</span>
+              <a href="projects.html#system-infosec" class="read-link">
+                View Architecture <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Discussion CTA -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 40px; text-align: center; backdrop-filter: blur(16px);">
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--text-primary);">Want to Discuss Technical Strategy or Systems?</h3>
+          <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 24px; line-height: 1.6;">
+            I welcome technical debates and architectural conversations on distributed systems, AI infrastructure, and reactive backends.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+            <a href="contact.html" class="btn btn-primary">
+              <i class="fa-solid fa-comments"></i> Start a Conversation
+            </a>
+            <a href="resume.html" class="btn btn-secondary">
+              <i class="fa-solid fa-file-lines"></i> View 1-Page Resume
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <a href="/" class="nav-logo">
+          <div class="logo-badge">AS</div>
+          <span>Aravind Suresh</span>
+        </a>
+
+        <div class="footer-social-links">
+          <a href="https://github.com/Aravind1998" target="_blank" rel="noopener noreferrer" class="btn-icon" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:aravindsuresh98@gmail.com" class="btn-icon" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://medium.com/perfiostechblog/embracing-reactive-programming-optimizing-cloud-database-and-web-operations-36e16913ded9" target="_blank" rel="noopener noreferrer" class="btn-icon" title="Medium Publication">
+            <i class="fa-brands fa-medium"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Aravind Suresh. Senior Technical Lead Engineer.
+        </div>
+        <a href="#" class="back-to-top">
+          <span>Back to Top</span>
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/custom-site.js"></script>
+  <script>
+    // Blog Filter Logic
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const articles = document.querySelectorAll('.blog-card, .featured-post-hero');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+
+        const filter = chip.getAttribute('data-filter');
+
+        articles.forEach(art => {
+          const cats = (art.getAttribute('data-category') || '').split(' ');
+          if (filter === 'all' || cats.includes(filter)) {
+            art.style.display = art.classList.contains('featured-post-hero') ? 'grid' : 'flex';
+          } else {
+            art.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
